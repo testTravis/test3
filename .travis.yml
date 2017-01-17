@@ -10,5 +10,9 @@ android:
     - extra-android-support
     - extra-android-m2repository
 before_install:
- - chmod +x gradlew
- - set fileformat=unix
+- chmod +x gradlew
+
+script:
+    - echo "Travis branch is $TRAVIS_BRANCH"
+    - echo "Travis branch is in pull request $TRAVIS_PULL+REQUEST"
+    - mvn clean install -P 'guice'
